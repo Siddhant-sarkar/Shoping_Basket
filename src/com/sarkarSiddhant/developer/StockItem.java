@@ -1,20 +1,29 @@
 package com.sarkarSiddhant.developer;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 public class StockItem implements Comparable<StockItem> {
     private final String  name;
     private  Double price;
     private int quantityStock;
+    private int reserved;
 
     public StockItem(String name, Double price,int quantityStock) {
         this.name = name;
         this.price = price;
         this.quantityStock = quantityStock;
+        this.reserved=0;
     }
+
 
     public String getName() {
         return name;
     }
 
+    public int getReserved() {
+        return reserved;
+    }
     public int getQuantityStock() {
         return quantityStock;
     }
@@ -34,6 +43,9 @@ public class StockItem implements Comparable<StockItem> {
         if (newStock < 0) {
             this.quantityStock=newStock;
         }
+    }
+    public void setQuantityReserved(int toBeReserved) {
+            this.quantityStock=reserved;
     }
     /*
     The method to increase the quantity of Qualtity Stock
@@ -90,6 +102,6 @@ public class StockItem implements Comparable<StockItem> {
      */
     @Override
     public String toString() {
-        return "Name : "+this.name+"Price : "+this.price;
+        return "Name : "+this.name+" Price : "+this.price+" Reserved : "+getReserved();
     }
 }

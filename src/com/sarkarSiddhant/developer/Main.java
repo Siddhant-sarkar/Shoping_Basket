@@ -3,26 +3,46 @@ package com.sarkarSiddhant.developer;
 public class Main {
 private static StockList stockList=new StockList();
     public static void main(String[] args) {
-	StockItem item=new StockItem("iPhone",1000.00,10);
-	stockList.addStock(item);
-         item=new StockItem("Samsung",975.00,150);
+        /*
+         *adding the diffrent items to this.stocklist
+         */
+	    StockItem item=new StockItem("iPhone",1000.00,10);
+	    stockList.addStock(item);
+	    item=new StockItem("Samsung",975.00,12);
+	    stockList.addStock(item);
+	    item=new StockItem("Mi",100.00,12);
         stockList.addStock(item);
-        item=new StockItem("Mi",100.00,150);
-        stockList.addStock(item);
-
-        System.out.println(stockList);
+        //printing out the stocklist
+//        System.out.println(stockList);
+        // declaring the basket of items.
         Basket basket =new Basket("Sarkar's Basket");
-        sellItem(basket,"iPhone",9);
-        System.out.println(stockList);
-        System.out.println(basket);
-
-        sellItem(basket,"iPhone",9);
+        /**
+         * Selling the items
+         * iPhone :7
+         *Samsung : 2
+         *Mi : 6
+         */
+        sellItem(basket,"iPhone",7);
         sellItem(basket,"Samsung",2);
-        sellItem(basket,"Mi",21);
-        System.out.println(basket);
+        sellItem(basket,"Mi",6);
+        //printing the stocklist
+//        System.out.println(stockList);
+        //printing the basket
+        System.out.println(basket);//i=7,s=2,mi=6
+        //printing the reserved items
+        System.out.println(basket.resvedListVisualized());//everything is zero...
+        /**
+         *Reserveing the items
+         */
+       basket.reserveItem(stockList.getItem("iPhone"),2);
+       basket.reserveItem(stockList.getItem("Samsung"),10);
+       basket.reserveItem(stockList.getItem("Mi"),3);
+       System.out.println(basket.resvedListVisualized());//i=2,s=10,mi=3
 
-//        sellItem(basket,"iPhone",1);
-//        sellItem(basket,"Xiaomi",5);
+
+        basket.checkout();
+       System.out.println(basket);//i=9,s=12,mi=9
+        System.out.println(basket.resvedListVisualized());
 
 
     }
