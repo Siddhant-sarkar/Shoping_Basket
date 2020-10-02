@@ -38,6 +38,9 @@ private static StockList stockList=new StockList();
        basket.reserveItem(stockList.getItem("Samsung"),10);
        basket.reserveItem(stockList.getItem("Mi"),3);
        System.out.println(basket.resvedListVisualized());//i=2,s=10,mi=3
+         basket.unreserveItem(stockList.getItem("Samsung"),5);
+        System.out.println(basket.resvedListVisualized());//i=2,s=05,mi=3
+
 
 
         basket.checkout();

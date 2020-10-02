@@ -45,7 +45,7 @@ public class StockItem implements Comparable<StockItem> {
         }
     }
     public void setQuantityReserved(int toBeReserved) {
-            this.quantityStock=reserved;
+            this.reserved=toBeReserved;
     }
     /*
     The method to increase the quantity of Qualtity Stock

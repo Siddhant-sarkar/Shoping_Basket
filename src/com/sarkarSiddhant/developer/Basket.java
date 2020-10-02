@@ -34,10 +34,19 @@ public class Basket {
         System.out.println("You are trying to reserve more than available to reserve ");
         return false;
     }
+    public boolean unreserveItem(StockItem item,int quantity){
+        if (quantity<reservedList.get(item)){
+            item.setQuantityReserved(-quantity);
+            System.out.println(quantity+" "+item.getName()+" are  unreserved!!! ");
+            return true;
+        }
+        System.out.println("You are trying to unreserve more than the items you have reserved reserve ");
+        return false;
+    }
     public void checkout(){
         for (Map.Entry<StockItem,Integer> items:this.reservedList.entrySet()){
+            addToBasket( items.getKey(),items.getKey().getReserved());
             items.getKey().setQuantityReserved(0);
-            addToBasket( items.getKey(),items.getValue());
         }
         this.reservedList.clear();
         System.out.println("SucessFully  checkout");
